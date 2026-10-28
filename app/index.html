@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Portal Estimula TEA | Profa. Helena Rezende</title>
+  <meta name="theme-color" content="#1e40af">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #eff6ff;
+      --accent: #10b981;
+      --accent-soft: #ecfdf5;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --danger-soft: #fef2f2;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 20px 35px -10px rgba(37, 99, 235, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0f172a;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Mobile Container Frame */
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* LOGIN SCREEN */
+    #loginScreen {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(170deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+      color: white;
+      padding: 32px 24px;
+      justify-content: space-between;
+    }
+
+    .login-header {
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .brand-icon {
+      width: 76px;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      margin-bottom: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .login-header h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .login-header p {
+      font-size: 14.5px;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    .exclusive-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    .login-card {
+      background: white;
+      color: var(--text);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-login {
+      width: 100%;
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(29, 78, 216, 0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-login:active {
+      transform: scale(0.98);
+    }
+
+    .login-footer {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.8;
+      padding-bottom: 16px;
+    }
+
+    /* MAIN APP INTERFACE */
+    #mainApp {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    /* App Header */
+    .app-topbar {
+      background: white;
+      padding: 16px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .topbar-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .user-greeting h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .user-greeting p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .btn-sos-top {
+      background: var(--danger-soft);
+      border: 1px solid #fecaca;
+      color: var(--danger);
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 7px 12px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15);
+    }
+
+    .content-area {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Quick Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-pill {
+      background: white;
+      padding: 12px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-pill .num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .stat-pill .lbl {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* SEARCH BAR */
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: white;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    /* MOOD SELECTOR */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .section-title h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .mood-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .mood-btn .icon {
+      font-size: 26px;
+    }
+
+    .mood-btn .text {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+
+    .mood-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    .mood-btn.active .text {
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    /* RECOMMENDED DYNAMIC CARD */
+    .highlight-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-banner {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-banner .tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .card-banner .time {
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-body {
+      padding: 20px 18px;
+    }
+
+    .card-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .card-reason {
+      background: #eff6ff;
+      border-left: 3px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #1e40af;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .info-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    .info-block h5 {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-block p, .info-block ul {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .info-block ul {
+      padding-left: 18px;
+    }
+
+    .info-block li {
+      margin-bottom: 4px;
+    }
+
+    .card-steps {
+      margin-top: 14px;
+    }
+
+    .card-steps h5 {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-text {
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .tip-special {
+      background: #fefce8;
+      border: 1.5px solid #fef08a;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #854d0e;
+      line-height: 1.45;
+    }
+
+    .tip-special strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #713f12;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-action-primary {
+      flex: 2;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+
+    .btn-action-secondary {
+      flex: 1;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* BONUS & PDFS SECTION */
+    .pdf-card {
+      background: white;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pdf-icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: #fee2e2;
+      color: #dc2626;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .pdf-info {
+      flex: 1;
+    }
+
+    .pdf-info h5 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .pdf-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .btn-download-pdf {
+      background: var(--primary-soft);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ROUTINE CHECKLIST */
+    .routine-item {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .routine-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .routine-icon {
+      font-size: 24px;
+    }
+
+    .routine-label h5 {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .routine-label p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .check-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: transparent;
+      transition: all 0.2s;
+    }
+
+    .check-btn.checked {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    /* BOTTOM NAV BAR */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+      background: white;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 10px 0 16px;
+      z-index: 50;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .nav-btn .icon {
+      font-size: 22px;
+    }
+
+    .nav-btn .lbl {
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .nav-btn.active {
+      color: var(--primary);
+    }
+
+    /* MODAL SOS */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: white;
+      border-radius: 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      animation: popIn 0.25s ease-out;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- 1. LOGIN / ACCESS GATE -->
+  <div id="loginScreen">
+    <div class="login-header">
+      <div class="brand-icon">🧩</div>
+      <h1>Portal Estimula TEA</h1>
+      <p>Desenvolvimento, fala e regulação infantil no aconchego do seu lar</p>
+      <div>
+        <span class="exclusive-badge">🔒 Área Exclusiva de Alunas</span>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <form id="accessForm" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <label>Como podemos te chamar?</label>
+          <input type="text" id="userNameInput" placeholder="Ex: Mariana (Mãe do Theo)" required>
+        </div>
+        <div class="input-group">
+          <label>Seu E-mail de Compra</label>
+          <input type="email" id="userEmailInput" placeholder="exemplo@email.com" required>
+        </div>
+        <button type="submit" class="btn-login">
+          <span>Acessar a Plataforma</span>
+          <span>➔</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="login-footer">
+      <p>Desenvolvido com carinho pela <strong>Profa. Helena Rezende</strong></p>
+      <p style="margin-top: 4px; opacity: 0.7;">© 2026 Método Estimula TEA · Todos os direitos reservados</p>
+    </div>
+  </div>
+
+  <!-- 2. MAIN APP DASHBOARD -->
+  <div id="mainApp">
+
+    <!-- Topbar -->
+    <header class="app-topbar">
+      <div class="topbar-user">
+        <div class="user-avatar" id="avatarInitial">M</div>
+        <div class="user-greeting">
+          <h3 id="displayGreeting">Olá, Mariana 👋</h3>
+          <p id="subGreeting">Pronta para a atividade de hoje?</p>
+        </div>
+      </div>
+      <button class="btn-sos-top" onclick="openSosModal()">
+        <span>🚨</span>
+        <span>SOS Crise</span>
+      </button>
+    </header>
+
+    <!-- TAB 1: DYNAMICS & HOME -->
+    <main id="tabHome" class="content-area">
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-pill">
+          <div class="num" id="statDone">3</div>
+          <div class="lbl">Aplicadas</div>
+        </div>
+        <div class="stat-pill">
+          <div class="num" id="statSaved">5</div>
+          <div class="lbl">Favoritas</div>
+        </div>
+        <div class="stat-pill">
+          <div class="num">350+</div>
+          <div class="lbl">Disponíveis</div>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-box">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input type="text" id="searchInput" placeholder="Buscar por material, foco ou fala..." oninput="handleSearch()">
+      </div>
+
+      <!-- State Selector ("Como ele está agora?") -->
+      <div>
+        <div class="section-title">
+          <h4><span>✨</span> Como seu filho está agora?</h4>
+          <span style="font-size: 12px; color: var(--primary); font-weight: 700;">Toque para filtrar</span>
+        </div>
+        <div class="mood-grid">
+          <div class="mood-btn active" onclick="selectMood('agitado', this)">
+            <span class="icon">🌪️</span>
+            <span class="text">Agitado</span>
+          </div>
+          <div class="mood-btn" onclick="selectMood('disperso', this)">
+            <span class="icon">💭</span>
+            <span class="text">Disperso</span>
+          </div>
+          <div class="mood-btn" onclick="selectMood('calmo', this)">
+            <span class="icon">💡</span>
+            <span class="text">Foco Total</span>
+          </div>
+          <div class="mood-btn" onclick="selectMood('comunicacao', this)">
+            <span class="icon">🗣️</span>
+            <span class="text">Fala</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Dynamic Card -->
+      <div class="highlight-card" id="activityCard">
+        <div class="card-banner">
+          <span class="tag" id="actCategory">Regulação Sensorial</span>
+          <span class="time" id="actTime">⏱️ 8 a 12 min</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" id="actTitle">O Resgate dos Pregadores no Pote Mágico</h3>
+
+          <div class="card-reason" id="actReason">
+            💡 <strong>Por que agora?</strong> Ajuda a canalizar a agitação motora para a ponta dos dedos (coordenação fina), acalmando o sistema nervoso em poucos minutos.
+          </div>
+
+          <div class="info-block">
+            <h5>🎯 Objetivo Terapêutico</h5>
+            <p id="actObjective">Fortalecer a pinça fina, tolerância à frustração e foco visual prolongado.</p>
+          </div>
+
+          <div class="info-block">
+            <h5>📦 O que você precisa</h5>
+            <p id="actMaterials">1 pote plástico comum e 6 a 10 pregadores de roupa coloridos.</p>
+          </div>
+
+          <div class="card-steps">
+            <h5>📋 Passo a Passo Simples</h5>
+            <div id="actStepsContainer">
+              <!-- Steps rendered dynamically -->
+            </div>
+          </div>
+
+          <div class="tip-special" id="actSpecialTip">
+            <strong>Dica de Ouro da Profa. Helena:</strong>
+            Se ele não quiser fazer ou estiver inquieto, comece você mesma prendendo os pregadores cantarolando uma música suave. Crianças com TEA respondem primeiro à imitação sem pressão.
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-action-primary" onclick="markCompleted()">
+              <span>✓</span> Concluir Atividade
+            </button>
+            <button class="btn-action-secondary" onclick="nextActivity()">
+              <span>🔄</span> Outra
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- TAB 2: ROUTINE PLANNER -->
+    <section id="tabRoutine" class="content-area" style="display: none;">
+      <div class="section-title">
+        <h4><span>📅</span> Rotina Visual do Dia</h4>
+        <span style="font-size: 12px; color: var(--accent); font-weight: 700;">Previne Crises</span>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">☀️</span>
+          <div class="routine-label">
+            <h5>Acordar & Higiene</h5>
+            <p>07:30 - Escovar os dentes e lavar o rosto</p>
+          </div>
+        </div>
+        <div class="check-btn checked" onclick="toggleRoutine(this)">✓</div>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">🥣</span>
+          <div class="routine-label">
+            <h5>Café da Manhã Estruturado</h5>
+            <p>08:00 - Sem telas na mesa</p>
+          </div>
+        </div>
+        <div class="check-btn checked" onclick="toggleRoutine(this)">✓</div>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">🧩</span>
+          <div class="routine-label">
+            <h5>Atividade Estimula TEA (10 min)</h5>
+            <p>09:30 - Momento de foco sensorial</p>
+          </div>
+        </div>
+        <div class="check-btn" onclick="toggleRoutine(this)">✓</div>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">🌳</span>
+          <div class="routine-label">
+            <h5>Descarga Motora ao Ar Livre</h5>
+            <p>15:00 - Pular, correr ou caminhar descalço</p>
+          </div>
+        </div>
+        <div class="check-btn" onclick="toggleRoutine(this)">✓</div>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">🛁</span>
+          <div class="routine-label">
+            <h5>Banho Morno Calmante</h5>
+            <p>19:00 - Transição suave para a desaceleração</p>
+          </div>
+        </div>
+        <div class="check-btn" onclick="toggleRoutine(this)">✓</div>
+      </div>
+
+      <div class="routine-item">
+        <div class="routine-left">
+          <span class="routine-icon">🌙</span>
+          <div class="routine-label">
+            <h5>Sono Reparador</h5>
+            <p>20:30 - Luz baixa e historinha sensorial</p>
+          </div>
+        </div>
+        <div class="check-btn" onclick="toggleRoutine(this)">✓</div>
+      </div>
+    </section>
+
+    <!-- TAB 3: DOWNLOADS & BONUS -->
+    <section id="tabDownloads" class="content-area" style="display: none;">
+      <div class="section-title">
+        <h4><span>🎁</span> Seus Materiais e Bônus em PDF</h4>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">📄</div>
+        <div class="pdf-info">
+          <h5>Apostila Master +350 Atividades</h5>
+          <p>O guia completo com todas as dinâmicas</p>
+        </div>
+        <a href="../materiais_entrega/01_300_Dinamicas_e_Atividades_TEA.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">📋</div>
+        <div class="pdf-info">
+          <h5>Quadro de Rotina Visual para Imprimir</h5>
+          <p>Cartões visuais práticos de recortar</p>
+        </div>
+        <a href="../materiais_entrega/02_Quadro_Rotina_Visual_Diaria.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">📵</div>
+        <div class="pdf-info">
+          <h5>Guia Desmame de Telas sem Crises</h5>
+          <p>Protocolo gradual de 14 dias</p>
+        </div>
+        <a href="../materiais_entrega/03_Guia_Desmame_de_Telas_sem_Crises.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">🗓️</div>
+        <div class="pdf-info">
+          <h5>Plano de 30 Dias de Estímulo</h5>
+          <p>1 atividade guiada por dia do mês</p>
+        </div>
+        <a href="../materiais_entrega/04_Plano_30_Dias_de_Estimulos_TEA.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">🚨</div>
+        <div class="pdf-info">
+          <h5>Manual SOS Crises Sensoriais</h5>
+          <p>Técnicas de contenção amorosa e regulação</p>
+        </div>
+        <a href="../materiais_entrega/05_SOS_Crises_Sensoriais_Protocolo.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+
+      <div class="pdf-card">
+        <div class="pdf-icon-wrap">🗣️</div>
+        <div class="pdf-info">
+          <h5>Guia de Comunicação Não-Verbal</h5>
+          <p>Para destravar os primeiros sons e palavras</p>
+        </div>
+        <a href="../materiais_entrega/06_Comunicacao_Criancas_Nao_Verbais.pdf" download class="btn-download-pdf">Baixar PDF</a>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" onclick="switchTab('home', this)">
+        <span class="icon">🏠</span>
+        <span class="lbl">Início</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('routine', this)">
+        <span class="icon">📅</span>
+        <span class="lbl">Rotina</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('downloads', this)">
+        <span class="icon">🎁</span>
+        <span class="lbl">Materiais</span>
+      </button>
+      <button class="nav-btn" onclick="openSosModal()">
+        <span class="icon">🚨</span>
+        <span class="lbl">SOS Crise</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- SOS CRISIS MODAL -->
+  <div class="modal-overlay" id="sosModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeSosModal()">✕</button>
+      <div style="text-align: center; margin-bottom: 16px;">
+        <span style="font-size: 40px;">🫁</span>
+        <h3 style="font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 900; color: #dc2626; margin-top: 6px;">Protocolo SOS Desregulação</h3>
+        <p style="font-size: 13px; color: var(--text-muted);">Siga estes 4 passos simples antes de falar qualquer coisa</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="info-block" style="border-left: 4px solid #ef4444; background: #fff;">
+          <h5 style="color: #ef4444;">1. Reduza os Estímulos Imediatamente</h5>
+          <p>Apague a luz forte, desligue TV/rádio e afaste pessoas ao redor. O cérebro dele está sobrecarregado.</p>
+        </div>
+        <div class="info-block" style="border-left: 4px solid #f59e0b; background: #fff;">
+          <h5 style="color: #f59e0b;">2. Conexão Visual Sem Cobrança</h5>
+          <p>Abaixe-se até a altura dos olhos dele. Não faça perguntas nem dê broncas. Seja o porto seguro calmo.</p>
+        </div>
+        <div class="info-block" style="border-left: 4px solid #3b82f6; background: #fff;">
+          <h5 style="color: #3b82f6;">3. Pressão Profunda e Acolhimento</h5>
+          <p>Se ele permitir, aperte suavemente os ombros ou envolva-o em uma manta pesada (estímulo proprioceptivo).</p>
+        </div>
+        <div class="info-block" style="border-left: 4px solid #10b981; background: #fff;">
+          <h5 style="color: #10b981;">4. Respiração do Balão Soprado</h5>
+          <p>Respire fundo e solte o ar audivelmente perto dele: "Olha a mamãe soltando o ar... vamos juntos".</p>
+        </div>
+      </div>
+
+      <button style="width: 100%; margin-top: 16px; background: #0f172a; color: white; border: none; padding: 13px; border-radius: 12px; font-weight: 800; cursor: pointer;" onclick="closeSosModal()">
+        Entendi, estou aplicando agora
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // DYNAMICS DATABASE
+  const activities = [
+    {
+      mood: 'agitado',
+      title: 'O Resgate dos Pregadores no Pote Mágico',
+      category: 'Regulação Sensorial & Foco',
+      time: '⏱️ 8 a 12 min',
+      reason: '💡 Por que agora? Canaliza a agitação motora para a ponta dos dedos, acalmando o sistema nervoso através do estímulo proprioceptivo.',
+      objective: 'Fortalecer a pinça fina, tolerância à frustração e foco visual sustentado.',
+      materials: '1 pote plástico comum e 6 a 10 pregadores de roupa coloridos.',
+      steps: [
+        'Coloque o pote virado para cima sobre uma mesa ou no chão.',
+        'Prenda 6 pregadores na borda do pote à vista da criança.',
+        'Peça com voz suave: "Será que você consegue tirar todos os vermelhos para mim?"',
+        'Deixe ele colocar dentro do pote. Cada clique sonoro gera recompensa sensorial imediata.'
+      ],
+      tip: 'Se ele estiver muito inquieto, não exija que fique sentado. Deixe ele fazer em pé ou ajoelhado.'
+    },
+    {
+      mood: 'agitado',
+      title: 'Circuito do Tapete Sensorial & Rolamento',
+      category: 'Descarga Motora Saudável',
+      time: '⏱️ 10 a 15 min',
+      reason: '💡 Por que agora? Dá ao corpo a descarga de energia que ele precisa de forma organizada, evitando crises e birras por sobrecarga.',
+      objective: 'Organização vestibular e consciência corporal.',
+      materials: '2 travesseiros grandes e 1 cobertor esticado no chão.',
+      steps: [
+        'Estique o cobertor no chão criando uma pista.',
+        'Coloque os travesseiros como "montanhas" para ultrapassar.',
+        'Convide a criança a rolar como um rolinho de massa por cima do cobertor.',
+        'No final da pista, dê um abraço firme e comemore a chegada.'
+      ],
+      tip: 'O movimento de rolar pressiona o tronco e libera ocitocina, acalmando a ansiedade.'
+    },
+    {
+      mood: 'disperso',
+      title: 'O Caçador de Tesouros no Arroz Colorido',
+      category: 'Atenção Sustentada',
+      time: '⏱️ 10 a 15 min',
+      reason: '💡 Por que agora? O toque dos grãos de arroz "acorda" a atenção tátil da criança, trazendo-a de volta para o momento presente.',
+      objective: 'Permanência de objeto, exploração tátil e atenção focada.',
+      materials: '1 bacia funda, 500g de arroz cru e 3 brinquedinhos pequenos favoritos.',
+      steps: [
+        'Despeje o arroz na bacia e esconda os brinquedos na frente dele.',
+        'Diga animada: "Cadê o carrinho? O arroz engoliu! Me ajuda a achar?"',
+        'Deixe ele mergulhar as mãos no arroz para procurar.',
+        'Conforme encontrar, nomeie cada objeto com entusiasmo pausado.'
+      ],
+      tip: 'Se ele tiver aversão à textura do arroz no início, use uma colher grande de plástico.'
+    },
+    {
+      mood: 'calmo',
+      title: 'Torre de Copos e Associação de Cores',
+      category: 'Raciocínio Lógico & Foco',
+      time: '⏱️ 15 a 20 min',
+      reason: '💡 Por que agora? Quando a criança está regulada, é o momento de ouro para aprender novos conceitos cognitivos e resolução de problemas.',
+      objective: 'Equilíbrio, seriação de padrões e coordenação olho-mão.',
+      materials: '6 a 10 copos descartáveis ou de plástico e papel picado colorido.',
+      steps: [
+        'Construa junto com ele uma base de 3 copos.',
+        'Convide-o a colocar o próximo copo em cima com cuidado.',
+        'Comemore a altura da torre antes de derrubarem juntos.',
+        'Aproveite para contar: "Um, dois, três... ploft!"'
+      ],
+      tip: 'Derrubar a torre faz parte da brincadeira! O ato de reconstruir ensina resiliência.'
+    },
+    {
+      mood: 'comunicacao',
+      title: 'Brincadeira do "Cadê o Bichinho? Achou!" com Eco de Sons',
+      category: 'Estímulo da Fala & Imitação',
+      time: '⏱️ 5 a 10 min',
+      reason: '💡 Por que agora? A antecipação do "Achou!" ativa as áreas de linguagem e contato visual sem parecer uma cobrança ou cobrança de fala.',
+      objective: 'Contato visual sustentado, turno comunicativo e emissão de fonemas bilabiais (B, P, M).',
+      materials: '1 paninho de boca ou fralda de tecido e 1 bichinho de pelúcia.',
+      steps: [
+        'Cubra seu rosto ou o brinquedo com o paninho.',
+        'Faça suspense com voz expressiva: "Onde foi parar?... Cadê..."',
+        'Puxe o pano rapidamente e fale com boca bem aberta: "ACHOOOU!"',
+        'Espere 5 segundos olhando nos olhos dele para ele tentar vocalizar ou puxar o pano.'
+      ],
+      tip: 'Mesmo que ele só emita um sonzinho "Aaa", comemore muito! Todo som é o começo de uma palavra.'
+    }
+  ];
+
+  let currentMood = 'agitado';
+  let currentIndex = 0;
+  let doneCount = 3;
+  let savedCount = 5;
+
+  // INITIALIZATION & LOGIN
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const demo = urlParams.get('demo');
+
+    if (demo) {
+      setupUserSession('Mariana (Mãe do Theo)');
+      if (demo === 'fala') {
+        selectMood('comunicacao', document.querySelectorAll('.mood-btn')[3]);
+      } else if (demo === 'routine') {
+        switchTab('routine', document.querySelectorAll('.nav-btn')[1]);
+      } else if (demo === 'downloads') {
+        switchTab('downloads', document.querySelectorAll('.nav-btn')[2]);
+      } else if (demo === 'sos') {
+        openSosModal();
+      }
+      return;
+    }
+
+    const savedUser = localStorage.getItem('estimula_tea_user');
+    if (savedUser) {
+      try {
+        const user = JSON.parse(savedUser);
+        setupUserSession(user.name);
+      } catch (e) {
+        showLogin();
+      }
+    } else {
+      showLogin();
+    }
+  });
+
+  function showLogin() {
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('mainApp').style.display = 'none';
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const name = document.getElementById('userNameInput').value.trim();
+    const email = document.getElementById('userEmailInput').value.trim();
+    if (!name || !email) return;
+
+    localStorage.setItem('estimula_tea_user', JSON.stringify({ name, email }));
+    setupUserSession(name);
+  }
+
+  function setupUserSession(name) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'flex';
+    document.getElementById('displayGreeting').innerText = `Olá, ${name.split(' ')[0]} 👋`;
+    document.getElementById('avatarInitial').innerText = name.charAt(0).toUpperCase();
+    renderActivity();
+  }
+
+  // MOOD SELECTION
+  function selectMood(mood, elem) {
+    document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+    elem.classList.add('active');
+    currentMood = mood;
+    currentIndex = 0;
+    renderActivity();
+  }
+
+  function renderActivity() {
+    const filtered = activities.filter(a => a.mood === currentMood);
+    const item = filtered[currentIndex % filtered.length] || activities[0];
+
+    document.getElementById('actTitle').innerText = item.title;
+    document.getElementById('actCategory').innerText = item.category;
+    document.getElementById('actTime').innerText = item.time;
+    document.getElementById('actReason').innerHTML = item.reason;
+    document.getElementById('actObjective').innerText = item.objective;
+    document.getElementById('actMaterials').innerText = item.materials;
+    document.getElementById('actSpecialTip').innerHTML = `<strong>Dica de Ouro da Profa. Helena:</strong> ${item.tip}`;
+
+    const stepsContainer = document.getElementById('actStepsContainer');
+    stepsContainer.innerHTML = '';
+    item.steps.forEach((step, idx) => {
+      const stepDiv = document.createElement('div');
+      stepDiv.className = 'step-item';
+      stepDiv.innerHTML = `
+        <div class="step-num">${idx + 1}</div>
+        <div class="step-text">${step}</div>
+      `;
+      stepsContainer.appendChild(stepDiv);
+    });
+  }
+
+  function nextActivity() {
+    currentIndex++;
+    renderActivity();
+  }
+
+  function markCompleted() {
+    doneCount++;
+    document.getElementById('statDone').innerText = doneCount;
+    alert('🎉 Parabéns! Mais um passinho importante no desenvolvimento do seu pequeno registrado!');
+    nextActivity();
+  }
+
+  function handleSearch() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    if (!q) {
+      renderActivity();
+      return;
+    }
+    const found = activities.find(a => 
+      a.title.toLowerCase().includes(q) || 
+      a.materials.toLowerCase().includes(q) || 
+      a.objective.toLowerCase().includes(q)
+    );
+    if (found) {
+      currentMood = found.mood;
+      document.querySelectorAll('.mood-btn').forEach(b => {
+        if (b.innerText.toLowerCase().includes(found.mood.slice(0, 4))) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      document.getElementById('actTitle').innerText = found.title;
+      document.getElementById('actCategory').innerText = found.category;
+      document.getElementById('actTime').innerText = found.time;
+      document.getElementById('actReason').innerHTML = found.reason;
+      document.getElementById('actObjective').innerText = found.objective;
+      document.getElementById('actMaterials').innerText = found.materials;
+      document.getElementById('actSpecialTip').innerHTML = `<strong>Dica de Ouro da Profa. Helena:</strong> ${found.tip}`;
+
+      const stepsContainer = document.getElementById('actStepsContainer');
+      stepsContainer.innerHTML = '';
+      found.steps.forEach((step, idx) => {
+        const stepDiv = document.createElement('div');
+        stepDiv.className = 'step-item';
+        stepDiv.innerHTML = `
+          <div class="step-num">${idx + 1}</div>
+          <div class="step-text">${step}</div>
+        `;
+        stepsContainer.appendChild(stepDiv);
+      });
+    }
+  }
+
+  // TABS NAVIGATION
+  function switchTab(tab, elem) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    elem.classList.add('active');
+
+    document.getElementById('tabHome').style.display = 'none';
+    document.getElementById('tabRoutine').style.display = 'none';
+    document.getElementById('tabDownloads').style.display = 'none';
+
+    if (tab === 'home') document.getElementById('tabHome').style.display = 'flex';
+    if (tab === 'routine') document.getElementById('tabRoutine').style.display = 'flex';
+    if (tab === 'downloads') document.getElementById('tabDownloads').style.display = 'flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleRoutine(btn) {
+    btn.classList.toggle('checked');
+  }
+
+  // SOS MODAL
+  function openSosModal() {
+    document.getElementById('sosModal').style.display = 'flex';
+  }
+
+  function closeSosModal() {
+    document.getElementById('sosModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

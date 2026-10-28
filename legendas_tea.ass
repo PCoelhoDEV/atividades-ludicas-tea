@@ -1,0 +1,33 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,58,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,5,1,2,50,50,410,1
+Style: Hook,Arial Black,62,&H0000FFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,6,2,2,50,50,410,1
+Style: Urgency,Arial Black,60,&H0033FFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,6,2,2,50,50,410,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:02.30,Hook,,0,0,0,,Se o seu filho tem autismo\nou atraso no desenvolvimento...
+Dialogue: 0,0:00:02.30,0:00:04.50,Urgency,,0,0,0,,Me escuta com muita atenção:
+Dialogue: 0,0:00:04.50,0:00:07.10,Default,,0,0,0,,A janela de neuroplasticidade dele\nestá aberta agora...
+Dialogue: 0,0:00:07.10,0:00:09.15,Urgency,,0,0,0,,MAS O TEMPO NÃO PERDOA!
+Dialogue: 0,0:00:09.50,0:00:11.80,Default,,0,0,0,,A cada mês vidrado nas telas...
+Dialogue: 0,0:00:11.80,0:00:14.35,Hook,,0,0,0,,Conexões cerebrais preciosas\nsão perdidas!
+Dialogue: 0,0:00:14.80,0:00:17.20,Urgency,,0,0,0,,E você sabe o medo\nque aperta o peito:
+Dialogue: 0,0:00:17.20,0:00:19.40,Default,,0,0,0,,O medo da fala não destravar...
+Dialogue: 0,0:00:19.40,0:00:21.73,Hook,,0,0,0,,Dele sofrer na escola\ne ficar isolado!
+Dialogue: 0,0:00:22.10,0:00:24.79,Default,,0,0,0,,As terapias são caríssimas\ne a fila é demorada...
+Dialogue: 0,0:00:25.10,0:00:27.20,Default,,0,0,0,,Mas o cérebro dele aprende...
+Dialogue: 0,0:00:27.20,0:00:29.33,Hook,,0,0,0,,Por estímulos visuais\ne sensoriais certos!
+Dialogue: 0,0:00:29.70,0:00:32.40,Urgency,,0,0,0,,Reunimos mais de 300\nDinâmicas Lúdicas Adaptadas!
+Dialogue: 0,0:00:32.40,0:00:35.10,Default,,0,0,0,,Apenas 15 minutos por dia...
+Dialogue: 0,0:00:35.10,0:00:37.60,Default,,0,0,0,,Com materiais simples\nque você já tem em casa!
+Dialogue: 0,0:00:37.60,0:00:40.77,Hook,,0,0,0,,Destravando o foco, a fala\ne acalmando crises!
+Dialogue: 0,0:00:41.10,0:00:44.78,Urgency,,0,0,0,,Kit Completo + 5 Bônus\nPOR APENAS R$ 14,90!
+Dialogue: 0,0:00:45.10,0:00:47.30,Default,,0,0,0,,Não deixe essa janela fechar!
+Dialogue: 0,0:00:47.30,0:00:50.40,Hook,,0,0,0,,Toque em SAIBA MAIS aqui embaixo\ne comece hoje mesmo! 👉
