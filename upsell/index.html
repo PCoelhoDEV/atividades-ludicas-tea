@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1D4ED8">
+<title>Espera, falta uma coisa | Dinâmicas TEA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://wiapy.com/sell/1.0.0/sell.min.js"></script>
+<style>
+:root{--navy:#1E3A8A;--yellow:#FDE047;--green:#16A34A;--ink:#0F172A;--muted:#5B6472}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,system-ui,sans-serif;background:linear-gradient(180deg,#2F6BF2 0%,#1D4ED8 430px,#F4F7FB 430px);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:520px;margin:0 auto;padding:0 14px}
+.top{background:var(--green);color:#fff;text-align:center;font-weight:800;font-size:14px;padding:9px 12px}
+.steps{display:flex;justify-content:center;gap:6px;margin:14px 0 4px}
+.steps i{height:6px;width:46px;border-radius:6px;background:rgba(255,255,255,.25)}
+.steps i.on{background:var(--yellow)}
+h1{font-weight:900;color:#fff;text-align:center;font-size:27px;line-height:1.15;margin:12px 4px 4px}
+h1 span{color:var(--yellow)}
+.sub{color:rgba(255,255,255,.85);text-align:center;font-size:15.5px;font-weight:700;margin-bottom:14px}
+.buy{background:#fff;border-radius:20px;margin:14px 0;padding:16px 14px 12px;box-shadow:0 10px 30px rgba(0,0,0,.12);text-align:center}
+.pname{font-weight:900;color:var(--navy);font-size:17px;line-height:1.2}
+.price{font-weight:800;color:var(--navy);font-size:15px;margin:6px 0 10px}
+.price s{color:var(--muted);font-weight:700}
+.price b{font-size:32px;font-weight:900;margin:0 4px}
+.perks{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 12px;font-size:13px;font-weight:800;color:var(--muted);margin-top:8px}
+.perks em{font-style:normal;color:var(--green)}
+#wiapy_upsell a{font-family:Nunito,system-ui,sans-serif!important;color:#6B7280!important;text-decoration:underline}
+h2{font-weight:900;color:var(--navy);font-size:20px;text-align:center;margin:22px 0 12px}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.shots figure{background:#fff;border-radius:14px;padding:6px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.shots img{width:100%;height:auto;border-radius:8px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.shots figcaption{font-size:12px;font-weight:800;color:var(--navy);text-align:center;margin-top:5px;line-height:1.25}
+.list{background:#fff;border-radius:16px;padding:14px 16px;margin-top:14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.list li{list-style:none;font-size:14.5px;font-weight:700;color:var(--ink);padding:5px 0 5px 26px;position:relative}
+.list li:before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:900}
+.guar{display:flex;gap:12px;align-items:center;background:#fff;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.seal{flex:none;width:60px;height:60px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-size:24px}
+.seal small{font-size:9px;letter-spacing:1px;margin-top:2px}
+.guar p{font-size:14px;color:var(--muted)}.guar b{color:var(--navy)}
+footer{text-align:center;font-size:12px;color:var(--muted);padding:6px 0 30px}
+.vwrap{position:relative;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.35);aspect-ratio:4/5}
+.vwrap video{width:100%;height:100%;display:block;object-fit:cover}
+.unmute{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.2);cursor:pointer;border:0;width:100%}
+.unmute span{background:#EA580C;color:#fff;font-family:Nunito;font-weight:900;font-size:17px;padding:14px 20px;border-radius:14px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.bar{position:absolute;left:0;bottom:0;height:5px;background:var(--yellow);width:0;transition:width .3s linear}
+.buy.locked{display:none}
+.buy.show{animation:reveal .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes reveal{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="top">✓ Compra confirmada. Não feche esta página.</div>
+<div class="wrap">
+  <div class="steps"><i class="on"></i><i class="on"></i><i></i></div>
+  <h1>Espera! <span>Falta uma coisa</span> antes de você sair</h1>
+  <p class="sub">Assista a este vídeo de 1 minuto</p>
+
+  <div class="vwrap">
+    <video id="vsl" src="video_upsell.mp4" poster="poster.webp" playsinline muted autoplay preload="auto"></video>
+    <button class="unmute" id="um" aria-label="Ativar o som"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Toque para ativar o som</span></button>
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div class="buy locked" id="offer">
+    <div class="pname">Plano TEA de 30 Dias</div>
+    <div class="price">Pagamento único de <b>R$27</b></div>
+    <div id="wiapy_upsell"></div>
+    <script>
+    initWiapyUpsell({
+        linkUrl: "https://pay.wiapy.com/checkout/6ada2924d032443944dda5cd",
+        linkText: "SIM, QUERO O PLANO DE 30 DIAS",
+        styles: {
+            backgroundColor: "#16A34A",
+            hoverBackgroundColor: "#15803D",
+            fontSize: "17px",
+            fontWeight: "800",
+            borderRadius: "12px",
+            fontFamily: "Nunito, system-ui, sans-serif"
+        },
+        refusalLinkUrl: "../downsell/",
+        refusalLinkText: "Não, obrigado. Vou escolher as dinâmicas sozinha.",
+        refusalLinkColor: "#6B7280"
+    });
+    </script>
+    <div class="perks"><span><em>✓</em> Entra junto com o seu pedido</span><span><em>✓</em> Acesso na hora</span><span><em>✓</em> 7 dias de garantia</span></div>
+  </div>
+
+  <h2>Como é por dentro</h2>
+  <div class="shots"><figure><img src="s1.webp" alt="Sessão do dia, passo a passo" loading="lazy"><figcaption>1. Sessão do dia, passo a passo</figcaption></figure><figure><img src="s2.webp" alt="Observação no início e no fim" loading="lazy"><figcaption>2. Observação no início e no fim</figcaption></figure><figure><img src="s3.webp" alt="Resumo para a terapeuta" loading="lazy"><figcaption>3. Resumo para a terapeuta</figcaption></figure></div>
+  <ul class="list"><li>30 sessões de 15 minutos, já em ordem</li><li>6 sessões para cada área: comunicação, regulação sensorial, atenção, coordenação e autonomia</li><li>O que fazer se a criança recusar e a hora de parar</li><li>Registro com carinhas, quadro de conquistas e certificado</li><li>Resumo pronto para levar à terapeuta e à escola</li></ul>
+
+  <div class="guar"><div class="seal">7<small>DIAS</small></div><p><b>Se não ajudar, devolvemos todo o seu dinheiro.</b> É só pedir pelo e-mail de suporte em até 7 dias.</p></div>
+  <footer>Material digital original do Portal Estimula TEA, protegido por direitos autorais.<br>Suporte: suporte@estimulatea.com.br</footer>
+</div>
+<script>
+(function(){
+  // a oferta fica escondida até a VSL dizer "Toca no botão verde"; se o vídeo não carregar, aparece em 75 s
+  var REVELA=54.25;
+  var t0=Date.now(),v=document.getElementById("vsl"),um=document.getElementById("um"),bar=document.getElementById("bar"),offer=document.getElementById("offer"),aberta=false;
+  function revela(rolar){if(aberta)return;aberta=true;offer.classList.remove("locked");offer.classList.add("show");if(rolar)setTimeout(function(){var y=offer.getBoundingClientRect().top+window.pageYOffset-(window.innerHeight-offer.offsetHeight)/2;window.scrollTo({top:Math.max(0,y),behavior:"smooth"});},300);}
+  um.addEventListener("click",function(){v.muted=false;v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});um.style.display="none";});
+  v.addEventListener("click",function(){if(um.style.display==="none"){if(v.paused)v.play();else v.pause();}});
+  v.addEventListener("timeupdate",function(){if(v.duration)bar.style.width=(v.currentTime/v.duration*100)+"%";if(v.currentTime>=REVELA)revela(true);});
+  v.addEventListener("ended",function(){revela(true);if(v.muted){v.currentTime=0;v.play();}});
+  v.addEventListener("error",function(){revela(false);});
+  setInterval(function(){if(!aberta&&(v.error||(Date.now()-t0>75000&&(v.paused||v.readyState<3)&&v.currentTime<REVELA)))revela(false);},5000);
+})();
+</script>
+</body>
+</html>

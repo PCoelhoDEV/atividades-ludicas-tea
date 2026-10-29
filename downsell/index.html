@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1D4ED8">
+<title>Última condição | Dinâmicas TEA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://wiapy.com/sell/1.0.0/sell.min.js"></script>
+<style>
+:root{--navy:#1E3A8A;--yellow:#FDE047;--green:#16A34A;--ink:#0F172A;--muted:#5B6472}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,system-ui,sans-serif;background:linear-gradient(180deg,#2F6BF2 0%,#1D4ED8 380px,#F4F7FB 380px);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:520px;margin:0 auto;padding:0 14px}
+.top{background:var(--green);color:#fff;text-align:center;font-weight:800;font-size:14px;padding:9px 12px}
+.steps{display:flex;justify-content:center;gap:6px;margin:14px 0 4px}
+.steps i{height:6px;width:46px;border-radius:6px;background:rgba(255,255,255,.25)}
+.steps i.on{background:var(--yellow)}
+h1{font-weight:900;color:#fff;text-align:center;font-size:27px;line-height:1.15;margin:12px 4px 4px}
+h1 span{color:var(--yellow)}
+.sub{color:rgba(255,255,255,.85);text-align:center;font-size:15.5px;font-weight:700;margin-bottom:14px}
+.buy{background:#fff;border-radius:20px;margin:14px 0;padding:16px 14px 12px;box-shadow:0 10px 30px rgba(0,0,0,.12);text-align:center}
+.pname{font-weight:900;color:var(--navy);font-size:17px;line-height:1.2}
+.price{font-weight:800;color:var(--navy);font-size:15px;margin:6px 0 10px}
+.price s{color:var(--muted);font-weight:700}
+.price b{font-size:32px;font-weight:900;margin:0 4px}
+.perks{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 12px;font-size:13px;font-weight:800;color:var(--muted);margin-top:8px}
+.perks em{font-style:normal;color:var(--green)}
+#wiapy_upsell a{font-family:Nunito,system-ui,sans-serif!important;color:#6B7280!important;text-decoration:underline}
+h2{font-weight:900;color:var(--navy);font-size:20px;text-align:center;margin:22px 0 12px}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.shots figure{background:#fff;border-radius:14px;padding:6px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.shots img{width:100%;height:auto;border-radius:8px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.shots figcaption{font-size:12px;font-weight:800;color:var(--navy);text-align:center;margin-top:5px;line-height:1.25}
+.list{background:#fff;border-radius:16px;padding:14px 16px;margin-top:14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.list li{list-style:none;font-size:14.5px;font-weight:700;color:var(--ink);padding:5px 0 5px 26px;position:relative}
+.list li:before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:900}
+.guar{display:flex;gap:12px;align-items:center;background:#fff;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.seal{flex:none;width:60px;height:60px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-size:24px}
+.seal small{font-size:9px;letter-spacing:1px;margin-top:2px}
+.guar p{font-size:14px;color:var(--muted)}.guar b{color:var(--navy)}
+footer{text-align:center;font-size:12px;color:var(--muted);padding:6px 0 30px}
+.buy{border:3px solid var(--yellow)}
+.price b{font-size:34px;color:var(--green)}
+.mock{width:100%;height:auto;display:block;border-radius:20px;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.ctx{background:#fff;border-radius:16px;padding:14px 16px;margin-top:14px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.ctx p{font-size:14.5px;font-weight:700;color:#334155;margin-bottom:6px}.ctx p:last-child{margin-bottom:0}.ctx b{color:var(--navy)}
+.how{background:#fff;border-radius:20px;padding:14px 12px;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-top:16px}
+.how h2{margin:0 0 10px;font-size:18px}
+.gift{background:#F0FDF4;border:2px dashed #16A34A;border-radius:16px;padding:14px 16px;margin:14px 0;color:#14532D}
+.gift .gt{font-weight:900;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:#16A34A;margin-bottom:4px}
+.gift b{font-size:18px;display:block;margin-bottom:4px}.gift p{font-size:15px;font-weight:700;line-height:1.45;margin:0}
+</style>
+</head>
+<body>
+<div class="top">✓ Compra confirmada. Não feche esta página.</div>
+<div class="wrap">
+  <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <h1>Última condição: <span>o mesmo plano + um presente por R$17</span></h1>
+  <p class="sub">Condição só para quem acabou de comprar.</p>
+
+  <img class="mock" src="mockup.webp" alt="Plano TEA de 30 Dias de R$27 por R$17" width="900" height="717">
+
+  <div class="ctx">
+    <p><b>É o mesmo Plano TEA de 30 Dias da página anterior</b>, agora com desconto.</p>
+    <p>Se você pulou o vídeo: são 30 sessões de 15 minutos para fazer em casa, já em ordem, com material que você já tem. Tem observação no começo e no fim para ver o quanto ela avançou, registro com carinhas e um resumo para levar à terapeuta e à escola.</p>
+  </div>
+  <div class="gift"><div class="gt">🎁 De presente nesta condição</div><b>Desfralde no TEA: Guia Passo a Passo</b><p>Sinais de prontidão, cartões de rotina visual do banheiro para imprimir, plano de 21 dias com folha de registro e o que fazer com escapes e regressões.</p></div>
+
+  <div class="buy" id="offer">
+    <div class="pname">Plano TEA de 30 Dias + Desfralde no TEA: Guia Passo a Passo</div>
+    <div class="price"><s>R$27</s> por <b>R$17</b> pagamento único</div>
+    <div id="wiapy_upsell"></div>
+    <script>
+    initWiapyUpsell({
+        linkUrl: "https://pay.wiapy.com/checkout/6ada28f5d032443944dd9d33",
+        linkText: "SIM, QUERO POR R$17",
+        styles: {
+            backgroundColor: "#16A34A",
+            hoverBackgroundColor: "#15803D",
+            fontSize: "17px",
+            fontWeight: "800",
+            borderRadius: "12px",
+            fontFamily: "Nunito, system-ui, sans-serif"
+        },
+        refusalLinkUrl: "../obrigado/",
+        refusalLinkText: "Não, obrigado. Quero só as dinâmicas.",
+        refusalLinkColor: "#6B7280"
+    });
+    </script>
+    <div class="perks"><span><em>✓</em> Entra junto com o seu pedido</span><span><em>✓</em> Acesso na hora</span><span><em>✓</em> 7 dias de garantia</span></div>
+  </div>
+
+  <div class="how">
+    <h2>O que tem dentro</h2>
+    <div class="shots"><figure><img src="../upsell/s1.webp" alt="Sessão do dia, passo a passo" loading="lazy"><figcaption>1. Sessão do dia, passo a passo</figcaption></figure><figure><img src="../upsell/s2.webp" alt="Observação no início e no fim" loading="lazy"><figcaption>2. Observação no início e no fim</figcaption></figure><figure><img src="../upsell/s3.webp" alt="Resumo para a terapeuta" loading="lazy"><figcaption>3. Resumo para a terapeuta</figcaption></figure></div>
+  </div>
+
+  <div class="guar"><div class="seal">7<small>DIAS</small></div><p><b>Se não ajudar, devolvemos todo o seu dinheiro.</b> É só pedir pelo e-mail de suporte em até 7 dias.</p></div>
+  <footer>Material digital original do Portal Estimula TEA, protegido por direitos autorais.<br>Suporte: suporte@estimulatea.com.br</footer>
+</div>
+</body>
+</html>
