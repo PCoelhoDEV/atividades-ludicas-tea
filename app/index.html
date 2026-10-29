@@ -680,7 +680,7 @@ body.tour-on .screen.active{animation:none !important}
 </div>
 
   <!-- TUTORIAL OVERLAY -->
-  <div class="tut-overlay" id="tut-overlay" style="display:none !important;">
+  <div class="tut-overlay" id="tut-overlay" style="display:none">
     <div class="tut-card">
       <button class="tut-skip" onclick="finishTutorial()">Pular</button>
       <div class="tut-slide active" id="tut-s0">
@@ -804,7 +804,7 @@ body.tour-on .screen.active{animation:none !important}
   </div>
 
 <!-- TOUR GUIADO -->
-<div id="tour" style="display:none !important;">
+<div id="tour">
   
   <div id="tour-hole"><div id="tour-ring"></div></div>
   <div id="tour-tip">
@@ -1991,7 +1991,7 @@ _navBtns.forEach(btn => {
 const TUT_TOTAL = document.querySelectorAll('.tut-slide').length;
 let tutSlide = 0;
 
-function initTutorial() { return; // disabled
+function initTutorial() {
   if (localStorage.getItem("tea_tut_done")) return;
   document.getElementById("tut-overlay").style.display = "flex";
   renderTutDots();
@@ -2089,8 +2089,11 @@ window.doLogin = function doLogin(){
 
     setTimeout(function(){
       screen.style.display = 'none';
-      // Tutorial na primeira vez
-      // Onboarding disabled: direct to app
+      // Tutorial na primeira vez (apenas se ainda não completou e sem ?notour)
+      var noTour = /[?&]notour/.test(window.location.search);
+      if(!noTour && !localStorage.getItem('tea_tut_done')){
+        setTimeout(function(){ tourStart(); }, 260);
+      }
     }, 420);
   }, 750);
 };
@@ -2159,7 +2162,10 @@ var tourIdx = 0, tourBusy = false, tourTimers = [];
 function tourClearTimers(){ tourTimers.forEach(clearTimeout); tourTimers = []; }
 function tourLater(fn, ms){ tourTimers.push(setTimeout(fn, ms)); }
 
-function tourStart(){ return; // disabled
+function tourStart(force){
+  var noTour = /[?&]notour/.test(window.location.search);
+  if(noTour) return;
+  if(!force && localStorage.getItem('tea_tut_done')) return;
   tourIdx = 0;
   document.getElementById('tour').classList.add('on');
   document.body.classList.add('tour-on');
