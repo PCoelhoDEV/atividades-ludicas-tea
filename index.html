@@ -946,18 +946,40 @@
     /* Action Buttons */
     .btn-plan {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 3px;
       width: 100%;
-      padding: 16px;
-      border-radius: var(--radius-full);
-      font-weight: 800;
-      font-size: 16px;
+      box-sizing: border-box;
+      padding: 14px 18px;
+      border-radius: 14px;
       text-decoration: none;
       border: none;
       cursor: pointer;
+      text-align: center;
       transition: all 0.2s ease;
+    }
+
+    .btn-plan-title {
+      font-weight: 800;
+      font-size: 15.5px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .btn-plan-sub {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      line-height: 1.2;
     }
 
     .btn-basic {
@@ -1720,25 +1742,26 @@
         <div class="pricing-card card-basic" id="planoBasicoCard">
           <div class="pricing-header">
             <h3>Plano Básico</h3>
-            <div class="plan-desc">Acesso completo ao Aplicativo Web no celular e computador</div>
+            <div class="plan-desc">Acesso completo ao Aplicativo Web · <strong>Acesso Vitalício</strong></div>
             <div class="price-tag-wrap">
               <div class="price-strike">De R$ 19,90</div>
               <div class="price-amount"><small>R$</small> 5,90</div>
-              <div class="price-subtext">Pagamento único · Acesso vitalício imediato</div>
+              <div class="price-subtext">⭐ Pagamento Único · Acesso Vitalício (Sem Mensalidades)</div>
             </div>
           </div>
 
           <ul class="pricing-checklist">
-            <li><span class="check-icon">✓</span> <span>Acesso Completo ao Aplicativo Web</span></li>
+            <li><span class="check-icon">✓</span> <strong>Acesso Completo e Vitalício ao Aplicativo Web</strong></li>
             <li><span class="check-icon">✓</span> <span>+350 Dinâmicas e Brincadeiras Práticas</span></li>
             <li><span class="check-icon">✓</span> <span>Filtros por Tempo e Estado Emocional</span></li>
-            <li><span class="check-icon">✓</span> <span>Acesso Vitalício sem Mensalidades</span></li>
+            <li><span class="check-icon">✓</span> <strong>Pague Uma Única Vez · Use Para Sempre</strong></li>
             <li style="color: #94a3b8;"><span style="color: #cbd5e1;">✕</span> <span style="text-decoration: line-through;">Sem os 5 Super Bônus Exclusivos em Alta Resolução</span></li>
           </ul>
 
           <!-- Clicking basic opens downsell modal -->
           <button type="button" onclick="openDownsellModal(event)" class="btn-plan btn-basic" aria-label="Escolher Plano Básico">
-            Escolher Plano Básico (R$ 5,90)
+            <span class="btn-plan-title">Escolher Plano Básico (R$ 5,90)</span>
+            <span class="btn-plan-sub" style="color: var(--slate-500);">Pagamento Único · Acesso Vitalício</span>
           </button>
         </div>
 
@@ -1748,28 +1771,29 @@
 
           <div class="pricing-header">
             <h3>Kit Completo + 5 Bônus</h3>
-            <div class="plan-desc">Aplicativo Web + Pacote Completo de Bônus em Alta Resolução</div>
+            <div class="plan-desc">Aplicativo Web + Pacote de 5 Bônus · <strong>Acesso Vitalício</strong></div>
             <div class="price-tag-wrap">
               <div class="price-strike">De R$ 97,00 por apenas</div>
               <div class="price-amount" style="color: #059669;"><small>R$</small> 14,90</div>
-              <div class="price-subtext">Pagamento único · Acesso vitalício imediato</div>
+              <div class="price-subtext">⭐ Pagamento Único · Acesso Vitalício Imediato (Sem Mensalidades)</div>
             </div>
           </div>
 
           <ul class="pricing-checklist">
-            <li><span class="check-icon">✓</span> <strong>Acesso Completo ao Aplicativo Web (+350 Dinâmicas)</strong></li>
+            <li><span class="check-icon">✓</span> <strong>Acesso Completo e Vitalício ao Aplicativo (+350 Dinâmicas)</strong></li>
             <li><span class="check-icon">✓</span> <span class="bonus-highlight">Bônus #1:</span> Quadro de Rotina Visual Semanal (Alta Resolução)</li>
             <li><span class="check-icon">✓</span> <span class="bonus-highlight">Bônus #2:</span> Guia Prático Desmame de Telas sem Traumas</li>
             <li><span class="check-icon">✓</span> <span class="bonus-highlight">Bônus #3:</span> Plano de 30 Dias de Estímulo Diário Passo a Passo</li>
             <li><span class="check-icon">✓</span> <span class="bonus-highlight">Bônus #4:</span> Protocolo SOS Crises e Sobrecarga Sensorial</li>
             <li><span class="check-icon">✓</span> <span class="bonus-highlight">Bônus #5:</span> Guia de Comunicação para Crianças Não-Verbais</li>
-            <li><span class="check-icon">✓</span> Atualizações contínuas de novas dinâmicas sem custo</li>
+            <li><span class="check-icon">✓</span> <strong>Acesso Vitalício: Sem mensalidades e com novas dinâmicas para sempre</strong></li>
             <li><span class="check-icon">✓</span> Garantia incondicional de 7 dias com reembolso total</li>
           </ul>
 
           <!-- Direct checkout link for Kit Completo -->
           <a href="https://pay.wiapy.com/JAkowiLrDNxB" class="btn-plan btn-complete" aria-label="Quero o Kit Completo Agora">
-            👉 QUERO O KIT COMPLETO POR R$ 14,90
+            <span class="btn-plan-title">👉 QUERO O KIT COMPLETO POR R$ 14,90</span>
+            <span class="btn-plan-sub">PAGAMENTO ÚNICO · ACESSO VITALÍCIO</span>
           </a>
         </div>
 
@@ -2002,7 +2026,7 @@
 
     // --- Centered Smooth Scroll to Plans ---
     // Specifically centers so that on mobile:
-    // Kit Completo (R$ 14,90) fills ~75-80% of viewport and Plano Básico (R$ 5,90) peeks at the top
+    // Kit Completo (R$ 14,90) and its CTA button sit perfectly framed in viewport
     function scrollToPlans() {
       const kitCard = document.getElementById('kitCompletoCard');
       const plansSection = document.getElementById('planos');
@@ -2012,23 +2036,17 @@
         return;
       }
 
-      function getAbsTop(el) {
-        let t = 0;
-        let curr = el;
-        while (curr) {
-          t += curr.offsetTop;
-          curr = curr.offsetParent;
-        }
-        return t;
-      }
-
       const vh = window.innerHeight;
-      const kitAbsTop = getAbsTop(kitCard);
+      const kitRect = kitCard.getBoundingClientRect();
+      const kitAbsBottom = kitRect.bottom + window.pageYOffset;
+      const kitAbsTop = kitRect.top + window.pageYOffset;
 
-      // We want kit card to start around 18% - 22% from the top of the viewport
-      // so 80% shows Kit Completo, and the top 20% shows the bottom of Plano Básico
-      const peekOffset = Math.round(vh * 0.20);
-      const targetScroll = Math.max(0, kitAbsTop - peekOffset);
+      let targetScroll;
+      if (kitRect.height + 40 > vh) {
+        targetScroll = Math.max(0, kitAbsBottom - vh + 36);
+      } else {
+        targetScroll = Math.max(0, kitAbsTop - Math.round((vh - kitRect.height) / 2));
+      }
 
       window.scrollTo({
         top: targetScroll,
