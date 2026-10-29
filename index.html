@@ -1380,16 +1380,16 @@
     }
 
     /* ==========================================================================
-       MODAL DE RESGATE / ANTI-ABANDONO (R$ 5,90 PIX - ULTRA COMPACTO)
+       MODAL DE RESGATE DINÂMICO (R$ 9,90 OU R$ 5,90 - ULTRA CHAMATIVO & COMPACTO)
        ========================================================================== */
     .resgate-overlay {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 100000;
-      background: rgba(15, 23, 42, 0.78);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
       padding: 12px;
@@ -1404,16 +1404,20 @@
 
     .resgate-card {
       background: #ffffff;
-      border-radius: 18px;
-      max-width: 360px;
+      border-radius: 20px;
+      max-width: 370px;
       width: 100%;
-      padding: 18px 16px 14px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(239, 68, 68, 0.25);
+      padding: 20px 18px 16px;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.5), 0 0 0 2.5px #10B981;
       position: relative;
       text-align: center;
       transform: scale(0.92);
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       box-sizing: border-box;
+    }
+
+    .resgate-card.theme-alert {
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.5), 0 0 0 2.5px #EF4444;
     }
 
     .resgate-overlay.open .resgate-card {
@@ -1422,14 +1426,15 @@
 
     .resgate-close-btn {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 26px;
-      height: 26px;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
       background: #F1F5F9;
       border: none;
       border-radius: 50%;
-      font-size: 13px;
+      font-size: 14px;
+      font-weight: 700;
       color: #64748B;
       cursor: pointer;
       display: flex;
@@ -1446,81 +1451,99 @@
     .resgate-badge {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      background: #FEF2F2;
-      border: 1px solid #FCA5A5;
-      color: #DC2626;
-      font-size: 10.5px;
+      gap: 5px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 9999px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .resgate-badge.badge-gold {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+      border: 1.5px solid #F59E0B;
+      color: #B45309;
+    }
+
+    .resgate-badge.badge-alert {
+      background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+      border: 1.5px solid #EF4444;
+      color: #B91C1C;
     }
 
     .resgate-title {
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 18px;
+      font-weight: 900;
       color: #0F172A;
       line-height: 1.25;
-      margin-bottom: 4px;
-      letter-spacing: -0.3px;
+      margin-bottom: 5px;
+      letter-spacing: -0.4px;
     }
 
     .resgate-sub {
-      font-size: 12px;
-      color: #64748B;
-      line-height: 1.35;
-      margin-bottom: 10px;
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .resgate-sub strong {
+      color: #0F172A;
     }
 
     .resgate-price-box {
-      background: #F0FDF4;
-      border: 1.5px dashed #22C55E;
-      border-radius: 12px;
-      padding: 8px 10px;
-      margin-bottom: 10px;
+      background: linear-gradient(145deg, #F0FDF4 0%, #DCFCE7 100%);
+      border: 2px dashed #16A34A;
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      box-shadow: inset 0 2px 6px rgba(22, 163, 74, 0.08);
     }
 
     .resgate-strike {
-      font-size: 11px;
+      font-size: 11.5px;
+      font-weight: 600;
       color: #64748B;
       text-decoration: line-through;
       margin-bottom: 2px;
     }
 
     .resgate-price {
-      font-size: 24px;
+      font-size: 27px;
       font-weight: 900;
       color: #15803D;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
     }
 
     .resgate-note {
-      font-size: 10.5px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       color: #166534;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .resgate-bullets {
       font-size: 11px;
+      font-weight: 600;
       color: #334155;
       line-height: 1.4;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       background: #F8FAFC;
-      border-radius: 8px;
-      padding: 6px 10px;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 8px 12px;
       text-align: left;
     }
 
     .resgate-bullets div {
       display: flex;
       align-items: center;
-      gap: 5px;
-      margin-bottom: 2px;
+      gap: 6px;
+      margin-bottom: 4px;
     }
 
     .resgate-bullets div:last-child {
@@ -1530,34 +1553,36 @@
     .resgate-bullets span.check {
       color: #16A34A;
       font-weight: 900;
+      font-size: 13px;
     }
 
     .resgate-btn-pulsing {
       display: block;
       width: 100%;
-      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      background: linear-gradient(135deg, #10B981 0%, #047857 100%);
       color: #ffffff !important;
       text-decoration: none;
-      padding: 13px 12px;
+      padding: 14px 14px;
       border-radius: 12px;
-      font-size: 13.5px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 900;
       letter-spacing: 0.3px;
       text-align: center;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-      animation: pulseGreen 1.8s infinite;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+      animation: pulseVividGreen 1.7s infinite;
       box-sizing: border-box;
+      text-transform: uppercase;
     }
 
-    @keyframes pulseGreen {
+    @keyframes pulseVividGreen {
       0% {
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
         transform: scale(1.02);
       }
       100% {
@@ -1568,7 +1593,7 @@
 
     .resgate-btn-decline {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 10px;
       background: none;
       border: none;
       color: #94A3B8;
@@ -2155,36 +2180,37 @@
     </div>
   </div>
 
-  <!-- MODAL DE RESGATE / ANTI-ABANDONO DE SAÍDA (R$ 5,90 PIX - ULTRA COMPACTO) -->
+  <!-- MODAL DE RESGATE / ANTI-ABANDONO DINÂMICO (R$ 9,90 OU R$ 5,90 - LEVE TUDO) -->
   <div class="resgate-overlay" id="modalResgateExit" onclick="handleResgateBackdropClick(event)">
-    <div class="resgate-card" role="dialog" aria-modal="true" aria-labelledby="resgateTitle">
+    <div class="resgate-card" id="resgateCardEl" role="dialog" aria-modal="true" aria-labelledby="resgateTitle">
       <button type="button" class="resgate-close-btn" onclick="fecharModalResgate()" aria-label="Fechar">✕</button>
       
-      <div class="resgate-badge">
-        <span>🚨</span> ESPERE! NÃO VÁ EMBORA ASSIM
+      <div class="resgate-badge" id="resgateBadge">
+        <span id="resgateBadgeIcon">🎁</span> <span id="resgateBadgeText">PROMOÇÃO IMPERDÍVEL · LEVE TUDO</span>
       </div>
 
       <h3 class="resgate-title" id="resgateTitle">
-        Você tem certeza que vai desistir?
+        Espere! Não vá embora de mãos vazias
       </h3>
 
-      <p class="resgate-sub">
-        Liberamos uma condição de emergência para você começar hoje:
+      <p class="resgate-sub" id="resgateSub">
+        Liberamos um desconto exclusivo para você levar o <strong>Kit Completo com TODOS os 5 Bônus</strong> por apenas:
       </p>
 
       <div class="resgate-price-box">
-        <div class="resgate-strike">De R$ 9,90 por apenas</div>
-        <div class="resgate-price">R$ 5,90 no PIX</div>
-        <div class="resgate-note">⚡ (Menos que um cafezinho!)</div>
+        <div class="resgate-strike" id="resgateStrike">De R$ 14,90 por apenas</div>
+        <div class="resgate-price" id="resgatePrice">R$ 9,90</div>
+        <div class="resgate-note" id="resgateNote">⭐ Leve o Web App + Todos os 5 Bônus Inclusos!</div>
       </div>
 
-      <div class="resgate-bullets">
-        <div><span class="check">✓</span> <span>Material completo + todos os bônus liberados</span></div>
-        <div><span class="check">✓</span> <span>Acesso vitalício imediato + garantia incondicional</span></div>
+      <div class="resgate-bullets" id="resgateBullets">
+        <div><span class="check">✓</span> <span>Web App com +350 Dinâmicas Guiadas</span></div>
+        <div><span class="check">✓</span> <span>TODOS os 5 Bônus Inclusos no Pacote</span></div>
+        <div><span class="check">✓</span> <span>Acesso Vitalício Imediato + 7 Dias de Garantia</span></div>
       </div>
 
-      <button type="button" class="resgate-btn-pulsing" onclick="redirecionarParaLink(window.MEU_CHECKOUT_DOWNSELL, 5.90, 'Downsell R$ 5,90')">
-        👉 SIM! LIBERAR ACESSO POR APENAS R$ 5,90
+      <button type="button" class="resgate-btn-pulsing" id="resgateBtnCta" onclick="executarAcaoDownsell()">
+        👉 SIM! QUERO LEVAR TUDO POR APENAS R$ 9,90
       </button>
 
       <div>
@@ -2339,9 +2365,17 @@
     })();
 
     // ==========================================================================
-    // SISTEMA ANTI-ABANDONO / MODAL DE RESGATE DE SAÍDA (R$ 5,90 PIX)
+    // SISTEMA ANTI-ABANDONO INTELIGENTE / MODAL DE RESGATE DE SAÍDA
+    // Cenário 1: Abriu checkout 14,90 e voltou -> Modal R$ 9,90 leva tudo
+    // Cenário 2: Clicou checkout 5,90 e voltou -> Modal R$ 5,90 leva tudo
+    // Cenário 3: Clicou no "Voltar" do celular na página de vendas -> Modal R$ 5,90 leva tudo
     // ==========================================================================
-    window.MEU_CHECKOUT_DOWNSELL = "https://pay.wiapy.com/fgpL54i0fqub";
+    window.OFFER_990_URL = "https://pay.wiapy.com/7EcI4sABsVhi";
+    window.OFFER_590_URL = "https://pay.wiapy.com/fgpL54i0fqub";
+
+    let currentDownsellUrl = window.OFFER_590_URL;
+    let currentDownsellValor = 5.90;
+    let currentDownsellEvento = 'Downsell R$ 5,90';
 
     // Preserva e repassa parâmetros de UTM recebidos na URL
     function anexarParametrosUTM(baseUrl) {
@@ -2363,6 +2397,52 @@
       }
     }
 
+    // Configura o visual e textos do modal de acordo com a oferta (9.90 ou 5.90)
+    function configurarModalResgate(tipo) {
+      const cardEl = document.getElementById('resgateCardEl');
+      const badgeEl = document.getElementById('resgateBadge');
+      const badgeIcon = document.getElementById('resgateBadgeIcon');
+      const badgeText = document.getElementById('resgateBadgeText');
+      const titleEl = document.getElementById('resgateTitle');
+      const subEl = document.getElementById('resgateSub');
+      const strikeEl = document.getElementById('resgateStrike');
+      const priceEl = document.getElementById('resgatePrice');
+      const noteEl = document.getElementById('resgateNote');
+      const btnCta = document.getElementById('resgateBtnCta');
+
+      if (tipo === '9.90') {
+        currentDownsellUrl = window.OFFER_990_URL;
+        currentDownsellValor = 9.90;
+        currentDownsellEvento = 'Downsell Voltou 14.90 -> 9.90';
+
+        if (cardEl) cardEl.className = 'resgate-card';
+        if (badgeEl) badgeEl.className = 'resgate-badge badge-gold';
+        if (badgeIcon) badgeIcon.textContent = '🎁';
+        if (badgeText) badgeText.textContent = 'PROMOÇÃO IMPERDÍVEL · LEVE TUDO';
+        if (titleEl) titleEl.textContent = 'Espere! Não vá embora de mãos vazias';
+        if (subEl) subEl.innerHTML = 'Liberamos uma condição especial para você levar o <strong>Kit Completo com TODOS os 5 Bônus</strong> por apenas:';
+        if (strikeEl) strikeEl.textContent = 'De R$ 14,90 por apenas';
+        if (priceEl) priceEl.textContent = 'R$ 9,90';
+        if (noteEl) noteEl.textContent = '⭐ Economia de R$ 5,00 · Web App + Todos os 5 Bônus Inclusos!';
+        if (btnCta) btnCta.textContent = '👉 SIM! QUERO LEVAR TUDO POR APENAS R$ 9,90';
+      } else {
+        currentDownsellUrl = window.OFFER_590_URL;
+        currentDownsellValor = 5.90;
+        currentDownsellEvento = 'Downsell Voltou 5.90 -> 5.90 Tudo';
+
+        if (cardEl) cardEl.className = 'resgate-card theme-alert';
+        if (badgeEl) badgeEl.className = 'resgate-badge badge-alert';
+        if (badgeIcon) badgeIcon.textContent = '🚨';
+        if (badgeText) badgeText.textContent = 'CONDIÇÃO DE EMERGÊNCIA · LEVE TUDO';
+        if (titleEl) titleEl.textContent = 'Você tem certeza que vai desistir?';
+        if (subEl) subEl.innerHTML = 'Última oportunidade: liberamos para você levar o <strong>Kit Completo com TODOS OS 5 BÔNUS</strong> por apenas:';
+        if (strikeEl) strikeEl.textContent = 'De R$ 14,90 por apenas';
+        if (priceEl) priceEl.textContent = 'R$ 5,90 no PIX';
+        if (noteEl) noteEl.textContent = '⚡ Mesmo valor do básico, mas com TUDO liberado!';
+        if (btnCta) btnCta.textContent = '👉 SIM! LIBERAR TUDO POR APENAS R$ 5,90';
+      }
+    }
+
     // Redirecionamento oficial com disparo de pixel e persistência de checkout
     function redirecionarParaLink(url, valor, nomeEvento) {
       sessionStorage.setItem('foi_pro_checkout', 'true');
@@ -2372,21 +2452,33 @@
           fbq('track', 'InitiateCheckout', {
             value: valor || 5.90,
             currency: 'BRL',
-            content_name: nomeEvento || 'Downsell R$ 5,90'
+            content_name: nomeEvento || 'Downsell Checkout'
           });
         } catch (err) {
           console.warn('Pixel track error:', err);
         }
       }
 
-      const finalUrl = anexarParametrosUTM(url || window.MEU_CHECKOUT_DOWNSELL);
+      const finalUrl = anexarParametrosUTM(url || currentDownsellUrl);
       window.location.href = finalUrl;
     }
 
+    function executarAcaoDownsell() {
+      redirecionarParaLink(currentDownsellUrl, currentDownsellValor, currentDownsellEvento);
+    }
+
     // Abertura e fechamento do modal com trava única por sessão
-    function abrirModalResgate() {
+    function abrirModalResgate(tipoForcado) {
       if (sessionStorage.getItem('downsell_mostrado') === 'true') return;
       sessionStorage.setItem('downsell_mostrado', 'true');
+
+      let tipo = tipoForcado;
+      if (!tipo) {
+        const ult = sessionStorage.getItem('ultimo_checkout_tipo');
+        tipo = (ult === '14.90') ? '9.90' : '5.90';
+      }
+
+      configurarModalResgate(tipo);
 
       // Fecha outros modais se estiverem abertos
       if (typeof closeModal === 'function') closeModal();
@@ -2412,14 +2504,26 @@
       }
     }
 
-    // Monitora cliques em qualquer link de checkout da página para ativar Gatilho A e anexar UTMs
+    // Monitora cliques em qualquer link de checkout da página para registrar tipo e anexar UTMs
     document.addEventListener('click', function (e) {
       const targetLink = e.target.closest('a[href*="pay.wiapy.com"]');
       if (targetLink) {
         sessionStorage.setItem('foi_pro_checkout', 'true');
+        const currentHref = targetLink.getAttribute('href') || '';
+
+        // Identifica qual plano o cliente tentou comprar
+        if (currentHref.includes('EqBTx3DuIInu') || currentHref.includes('JAkowiLrDNxB')) {
+          sessionStorage.setItem('ultimo_checkout_tipo', '14.90');
+        } else if (currentHref.includes('7EcI4sABsVhi') || currentHref.includes('qrhoVnY04YTh')) {
+          sessionStorage.setItem('ultimo_checkout_tipo', '9.90');
+        } else if (currentHref.includes('fgpL54i0fqub') || currentHref.includes('HPH8ANO5SFq')) {
+          sessionStorage.setItem('ultimo_checkout_tipo', '5.90');
+        } else {
+          sessionStorage.setItem('ultimo_checkout_tipo', '14.90');
+        }
+
         // Anexa UTMs dinamicamente ao link clicado
-        const currentHref = targetLink.getAttribute('href');
-        if (currentHref && !targetLink.dataset.utmAttached) {
+        if (!targetLink.dataset.utmAttached) {
           targetLink.setAttribute('href', anexarParametrosUTM(currentHref));
           targetLink.dataset.utmAttached = "true";
         }
@@ -2430,11 +2534,15 @@
     window.addEventListener('pageshow', function (event) {
       if (sessionStorage.getItem('foi_pro_checkout') === 'true' && !sessionStorage.getItem('downsell_mostrado')) {
         sessionStorage.removeItem('foi_pro_checkout');
-        setTimeout(abrirModalResgate, 250);
+        const ult = sessionStorage.getItem('ultimo_checkout_tipo');
+        // Se abriu 14,90 e voltou -> abre 9,90
+        // Se clicou 5,90 e voltou -> abre 5,90 com tudo
+        const tipoParaMostrar = (ult === '14.90') ? '9.90' : '5.90';
+        setTimeout(() => abrirModalResgate(tipoParaMostrar), 250);
       }
     });
 
-    // GATILHO B: Botão Voltar do celular/navegador (History API, sem mouseleave falso-positivo)
+    // GATILHO B: Botão Voltar do celular/navegador ao navegar na página de vendas
     (function initBackInterceptor() {
       try {
         history.pushState({ antiAbandono: true }, document.title, location.href);
@@ -2445,7 +2553,8 @@
           try {
             history.pushState(null, document.title, location.href);
           } catch (e) {}
-          abrirModalResgate();
+          // Ao clicar em voltar na página sem ir pro checkout, abre promoção de levar tudo por 5,90
+          abrirModalResgate('5.90');
         }
       });
     })();
