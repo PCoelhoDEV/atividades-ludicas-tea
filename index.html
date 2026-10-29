@@ -183,7 +183,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 50px 20px 40px;
+      padding: 24px 16px 24px;
       background: radial-gradient(circle at 50% 10%, #f0f7ff 0%, #ffffff 80%);
       text-align: center;
     }
@@ -191,23 +191,24 @@
     .badge-hero {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background: var(--primary-light);
       color: var(--primary);
       border: 1px solid var(--primary-border);
-      padding: 7px 18px;
+      padding: 5px 14px;
       border-radius: var(--radius-full);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 22px;
+      margin-bottom: 12px;
       box-shadow: var(--shadow-sm);
     }
 
     .hero-title {
-      font-size: clamp(26px, 5.2vw, 44px);
+      font-size: clamp(21px, 4.4vw, 36px);
       color: var(--text-main);
-      margin-bottom: 18px;
-      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      line-height: 1.22;
+      letter-spacing: -0.4px;
     }
 
     .hero-title .highlight-blue {
@@ -220,18 +221,25 @@
     }
 
     .hero-sub {
-      font-size: clamp(15px, 2vw, 17px);
+      font-size: clamp(13.5px, 1.8vw, 15.5px);
       color: var(--text-muted);
-      max-width: 580px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto 16px;
+      line-height: 1.45;
+    }
+
+    .hero .hero-cta-btn {
+      max-width: 440px;
+      margin: 0 auto 16px;
+      padding: 15px 28px;
+      font-size: 16px;
     }
 
     /* VSL Player */
     .vsl-box {
       display: flex;
       justify-content: center;
-      margin: 28px 0 32px;
+      margin: 18px 0 24px;
     }
 
     .vsl-wrapper {
@@ -913,6 +921,84 @@
       transform: rotate(180deg);
     }
 
+    /* Floating Bottom Smart CTA */
+    .floating-cta-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(110px);
+      z-index: 999;
+      width: calc(100% - 32px);
+      max-width: 440px;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      border-radius: var(--radius-full);
+    }
+
+    .floating-cta-bar.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .floating-btn {
+      font-size: 14.5px;
+      padding: 14px 20px;
+      gap: 8px;
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.45);
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      .top-bar {
+        padding: 8px 10px;
+        font-size: 11.5px;
+        gap: 6px;
+      }
+      .top-timer {
+        font-size: 13px;
+        padding: 2px 7px;
+      }
+      .hero {
+        padding: 14px 12px 18px;
+      }
+      .badge-hero {
+        font-size: 11px;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+      }
+      .hero-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .hero-sub {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      .hero .hero-cta-btn {
+        padding: 12px 18px;
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .floating-cta-bar {
+        bottom: 12px;
+        width: calc(100% - 20px);
+      }
+      .floating-btn {
+        font-size: 13px;
+        padding: 12px 14px;
+      }
+      .plans-grid {
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .plan-card {
+        padding: 24px 18px;
+      }
+    }
+
     /* Downsell Modal */
     .modal-backdrop {
       display: none;
@@ -931,7 +1017,7 @@
       border-radius: var(--radius-lg);
       max-width: 460px;
       width: 100%;
-      padding: 32px 24px;
+      padding: 28px 20px;
       text-align: center;
       box-shadow: var(--shadow-lg);
       position: relative;
@@ -958,6 +1044,89 @@
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
+    }
+
+    .modal-tag-urgent {
+      display: inline-block;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 11.5px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .modal-bonus-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: left;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .modal-bonus-item {
+      font-size: 12.5px;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-price-box {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(21, 128, 61, 0.12));
+      border: 1.5px dashed var(--accent);
+      border-radius: 14px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+    }
+
+    .modal-old-price {
+      font-size: 12px;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .modal-current-price {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--accent);
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.05;
+    }
+
+    .modal-badge-save {
+      font-size: 11.5px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .modal-cta-btn {
+      font-size: 15px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    .modal-reject-link {
+      font-size: 12px;
+      color: var(--text-light);
+      text-decoration: underline;
+      display: inline-block;
+      padding: 4px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .modal-reject-link:hover {
+      color: var(--text-main);
     }
 
     /* Footer */
@@ -1002,7 +1171,7 @@
         Atividades práticas e organizadas por área de desenvolvimento, para aplicar em casa usando materiais simples que você já tem, mesmo que seu filho tenha dificuldade de foco ou seja não-verbal.
       </p>
 
-      <a href="#planos" class="btn btn-blue btn-block pulse-btn" style="max-width: 440px; margin: 0 auto 20px;">
+      <a href="#planos" onclick="event.preventDefault(); scrollToPlans();" class="btn btn-blue btn-block pulse-btn hero-cta-btn">
         👉 QUERO ESTIMULAR MEU FILHO AGORA
       </a>
 
@@ -1081,7 +1250,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 40px;">
-        <a href="#planos" class="btn btn-green">QUERO RESOLVER ISSO HOJE</a>
+        <a href="#planos" onclick="event.preventDefault(); scrollToPlans();" class="btn btn-green">QUERO RESOLVER ISSO HOJE</a>
       </div>
     </div>
   </section>
@@ -1366,9 +1535,9 @@
             </li>
           </ul>
 
-          <a href="https://pay.wiapy.com/HPH8ANO5SFq" class="btn btn-blue btn-block" style="font-size: 15px; padding: 14px 20px;">
+          <button type="button" onclick="openDownsellModal(event)" class="btn btn-blue btn-block" style="font-size: 15px; padding: 14px 20px; width: 100%;">
             COMPRAR BÁSICO POR R$ 5,90
-          </a>
+          </button>
         </div>
 
         <!-- Plano Completo (Recomendado) -->
@@ -1502,28 +1671,46 @@
     </div>
   </section>
 
-  <!-- Downsell Modal (Exit Intent / Click Alternative) -->
-  <div class="modal-backdrop" id="downsellModal">
+  <!-- Floating Smart CTA Bar -->
+  <div class="floating-cta-bar" id="floatingCta">
+    <button type="button" onclick="scrollToPlans()" class="btn btn-green btn-block pulse-btn floating-btn">
+      <span>👉 QUERO ESTIMULAR MEU FILHO (R$ 14,90)</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Downsell Modal (Click on R$ 5,90 or Exit Intent) -->
+  <div class="modal-backdrop" id="downsellModal" onclick="handleBackdropClick(event)">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">✕</button>
-      <span class="sec-tag red" style="margin-bottom: 12px;">ÚLTIMA CHANCE EXCLUSIVA</span>
-      <h3 style="font-size: 22px; color: var(--text-main); margin-bottom: 10px;">
-        Espere! Não deixe seu filho sem esse suporte.
+      <div class="modal-tag-urgent">⚡ PROMOÇÃO ESPECIAL LIMITADA</div>
+      <h3 class="modal-title">
+        Espere! Leve o Kit Completo + 5 Bônus por apenas R$ 9,90!
       </h3>
-      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
-        Liberamos uma condição especial de última hora: leve o <strong>KIT COMPLETO com todos os 5 Bônus</strong> pelo preço quase do básico:
+      <p class="modal-sub">
+        Por apenas <strong>R$ 4,00 a mais</strong> que o plano básico, você não perde os <strong>5 Guias Bônus Exclusivos</strong> para imprimir e aplicar hoje:
       </p>
 
-      <div style="font-size: 38px; font-weight: 900; color: var(--accent); font-family: 'Nunito', sans-serif; margin-bottom: 20px;">
-        R$ 9,90
+      <div class="modal-bonus-list">
+        <div class="modal-bonus-item">✓ <strong>Quadro de Rotina Visual</strong> em Alta Resolução</div>
+        <div class="modal-bonus-item">✓ <strong>Guia de Redução de Telas</strong> sem choro</div>
+        <div class="modal-bonus-item">✓ <strong>Protocolo SOS Desregulação</strong> e Crises</div>
+        <div class="modal-bonus-item">✓ <strong>30 Dias de Estímulo Prontos</strong> para Aplicar</div>
+        <div class="modal-bonus-item">✓ <strong>Guia de Comunicação</strong> para Crianças Não-Verbais</div>
       </div>
 
-      <a href="https://pay.wiapy.com/qrhoVnY04YTh" class="btn btn-green btn-block" style="font-size: 16px; margin-bottom: 14px;">
-        SIM! QUERO O KIT COMPLETO POR R$ 9,90 ✅
+      <div class="modal-price-box">
+        <span class="modal-old-price">De R$ 14,90 por</span>
+        <div class="modal-current-price">R$ 9,90</div>
+        <span class="modal-badge-save">Pagamento Único · Acesso Vitalício Imediato</span>
+      </div>
+
+      <a href="https://pay.wiapy.com/qrhoVnY04YTh" class="btn btn-green btn-block pulse-btn modal-cta-btn">
+        ⭐ SIM! QUERO O KIT COMPLETO POR R$ 9,90
       </a>
 
-      <a href="https://pay.wiapy.com/HPH8ANO5SFq" style="font-size: 12.5px; color: var(--text-light); text-decoration: underline;" onclick="closeModal()">
-        Não, prefiro continuar com o básico por R$ 5,90
+      <a href="https://pay.wiapy.com/HPH8ANO5SFq" class="modal-reject-link" onclick="closeModal()">
+        Não, prefiro continuar com o básico por R$ 5,90 (sem bônus)
       </a>
     </div>
   </div>
@@ -1606,18 +1793,115 @@
       item.classList.toggle('active');
     }
 
+    // Smooth Centered Scroll to Plans
+    function scrollToPlans() {
+      const kitCard = document.querySelector('.plan-card.featured');
+      const basicoCard = document.querySelector('.plan-card:not(.featured)');
+      if (!kitCard) return;
+
+      const topBar = document.querySelector('.top-bar');
+      const topBarHeight = topBar ? topBar.offsetHeight : 40;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        // Show ~75% of Kit Completo and peeking at top the bottom of Básico (R$ 5,90)
+        const kitRect = kitCard.getBoundingClientRect();
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = currentScroll + kitRect.top - topBarHeight - 125;
+        
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth'
+        });
+      } else {
+        const plansSec = document.getElementById('planos');
+        const secRect = plansSec.getBoundingClientRect();
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = currentScroll + secRect.top - topBarHeight - 20;
+        
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Smart Scroll Floating Button
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTicking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+          const floatingCta = document.getElementById('floatingCta');
+          const plansSection = document.getElementById('planos');
+
+          if (floatingCta) {
+            if (currentScrollY < 240) {
+              floatingCta.classList.remove('visible');
+            } else {
+              let inPlans = false;
+              if (plansSection) {
+                const rect = plansSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80 && rect.bottom > 140) {
+                  inPlans = true;
+                }
+              }
+
+              if (inPlans) {
+                floatingCta.classList.remove('visible');
+              } else {
+                if (currentScrollY > lastScrollY + 3) {
+                  // Scrolling Down -> Show
+                  floatingCta.classList.add('visible');
+                } else if (currentScrollY < lastScrollY - 3) {
+                  // Scrolling Up -> Hide
+                  floatingCta.classList.remove('visible');
+                }
+              }
+            }
+          }
+
+          lastScrollY = currentScrollY;
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+
+    // Downsell Modal Functions
+    function openDownsellModal(e) {
+      if (e) e.preventDefault();
+      const modal = document.getElementById('downsellModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('downsellModal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'downsellModal') {
+        closeModal();
+      }
+    }
+
     // Exit Intent / Downsell
     let downsellShown = false;
     document.addEventListener('mouseleave', function(e) {
       if (e.clientY <= 0 && !downsellShown) {
         downsellShown = true;
-        document.getElementById('downsellModal').style.display = 'flex';
+        openDownsellModal(e);
       }
     });
-
-    function closeModal() {
-      document.getElementById('downsellModal').style.display = 'none';
-    }
   </script>
 
 </body>
