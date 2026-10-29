@@ -1378,6 +1378,209 @@
       background: var(--slate-200);
       color: var(--dark);
     }
+
+    /* ==========================================================================
+       MODAL DE RESGATE / ANTI-ABANDONO (R$ 5,90 PIX - ULTRA COMPACTO)
+       ========================================================================== */
+    .resgate-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .resgate-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .resgate-card {
+      background: #ffffff;
+      border-radius: 18px;
+      max-width: 360px;
+      width: 100%;
+      padding: 18px 16px 14px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(239, 68, 68, 0.25);
+      position: relative;
+      text-align: center;
+      transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+
+    .resgate-overlay.open .resgate-card {
+      transform: scale(1);
+    }
+
+    .resgate-close-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 26px;
+      height: 26px;
+      background: #F1F5F9;
+      border: none;
+      border-radius: 50%;
+      font-size: 13px;
+      color: #64748B;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .resgate-close-btn:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .resgate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      color: #DC2626;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .resgate-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .resgate-sub {
+      font-size: 12px;
+      color: #64748B;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .resgate-price-box {
+      background: #F0FDF4;
+      border: 1.5px dashed #22C55E;
+      border-radius: 12px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+    }
+
+    .resgate-strike {
+      font-size: 11px;
+      color: #64748B;
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+
+    .resgate-price {
+      font-size: 24px;
+      font-weight: 900;
+      color: #15803D;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .resgate-note {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #166534;
+      margin-top: 2px;
+    }
+
+    .resgate-bullets {
+      font-size: 11px;
+      color: #334155;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      background: #F8FAFC;
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    .resgate-bullets div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 2px;
+    }
+
+    .resgate-bullets div:last-child {
+      margin-bottom: 0;
+    }
+
+    .resgate-bullets span.check {
+      color: #16A34A;
+      font-weight: 900;
+    }
+
+    .resgate-btn-pulsing {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 13px 12px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      animation: pulseGreen 1.8s infinite;
+      box-sizing: border-box;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        transform: scale(1);
+      }
+    }
+
+    .resgate-btn-decline {
+      display: inline-block;
+      margin-top: 8px;
+      background: none;
+      border: none;
+      color: #94A3B8;
+      font-size: 11px;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .resgate-btn-decline:hover {
+      color: #64748B;
+    }
   </style>
 </head>
 <body>
@@ -1945,9 +2148,49 @@
 
       <!-- Modal Decline Action (Continues to basic) -->
       <div>
-        <a href="https://pay.wiapy.com/HPH8ANO5SFq" class="modal-link-decline" onclick="closeModal()">
+        <a href="https://pay.wiapy.com/fgpL54i0fqub" class="modal-link-decline" onclick="closeModal()">
           Continuar sem os bônus por R$ 5,90 →
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE RESGATE / ANTI-ABANDONO DE SAÍDA (R$ 5,90 PIX - ULTRA COMPACTO) -->
+  <div class="resgate-overlay" id="modalResgateExit" onclick="handleResgateBackdropClick(event)">
+    <div class="resgate-card" role="dialog" aria-modal="true" aria-labelledby="resgateTitle">
+      <button type="button" class="resgate-close-btn" onclick="fecharModalResgate()" aria-label="Fechar">✕</button>
+      
+      <div class="resgate-badge">
+        <span>🚨</span> ESPERE! NÃO VÁ EMBORA ASSIM
+      </div>
+
+      <h3 class="resgate-title" id="resgateTitle">
+        Você tem certeza que vai desistir?
+      </h3>
+
+      <p class="resgate-sub">
+        Liberamos uma condição de emergência para você começar hoje:
+      </p>
+
+      <div class="resgate-price-box">
+        <div class="resgate-strike">De R$ 9,90 por apenas</div>
+        <div class="resgate-price">R$ 5,90 no PIX</div>
+        <div class="resgate-note">⚡ (Menos que um cafezinho!)</div>
+      </div>
+
+      <div class="resgate-bullets">
+        <div><span class="check">✓</span> <span>Material completo + todos os bônus liberados</span></div>
+        <div><span class="check">✓</span> <span>Acesso vitalício imediato + garantia incondicional</span></div>
+      </div>
+
+      <button type="button" class="resgate-btn-pulsing" onclick="redirecionarParaLink(window.MEU_CHECKOUT_DOWNSELL, 5.90, 'Downsell R$ 5,90')">
+        👉 SIM! LIBERAR ACESSO POR APENAS R$ 5,90
+      </button>
+
+      <div>
+        <button type="button" class="resgate-btn-decline" onclick="fecharModalResgate()">
+          (Não quero aproveitar e prefiro sair sem nada)
+        </button>
       </div>
     </div>
   </div>
@@ -2098,6 +2341,123 @@
         }
       }, { passive: true });
     })();
+
+    // ==========================================================================
+    // SISTEMA ANTI-ABANDONO / MODAL DE RESGATE DE SAÍDA (R$ 5,90 PIX)
+    // ==========================================================================
+    window.MEU_CHECKOUT_DOWNSELL = "https://pay.wiapy.com/fgpL54i0fqub";
+
+    // Preserva e repassa parâmetros de UTM recebidos na URL
+    function anexarParametrosUTM(baseUrl) {
+      try {
+        const search = window.location.search;
+        if (!search || search.length <= 1) return baseUrl;
+
+        const currentParams = new URLSearchParams(search);
+        const urlObj = new URL(baseUrl, window.location.origin);
+        currentParams.forEach((val, key) => {
+          urlObj.searchParams.set(key, val);
+        });
+        return urlObj.toString();
+      } catch (e) {
+        const qs = window.location.search ? window.location.search.substring(1) : '';
+        if (!qs) return baseUrl;
+        const sep = baseUrl.indexOf('?') !== -1 ? '&' : '?';
+        return baseUrl + sep + qs;
+      }
+    }
+
+    // Redirecionamento oficial com disparo de pixel e persistência de checkout
+    function redirecionarParaLink(url, valor, nomeEvento) {
+      sessionStorage.setItem('foi_pro_checkout', 'true');
+
+      if (typeof fbq === 'function') {
+        try {
+          fbq('track', 'InitiateCheckout', {
+            value: valor || 5.90,
+            currency: 'BRL',
+            content_name: nomeEvento || 'Downsell R$ 5,90'
+          });
+        } catch (err) {
+          console.warn('Pixel track error:', err);
+        }
+      }
+
+      const finalUrl = anexarParametrosUTM(url || window.MEU_CHECKOUT_DOWNSELL);
+      window.location.href = finalUrl;
+    }
+
+    // Abertura e fechamento do modal com trava única por sessão
+    function abrirModalResgate() {
+      if (sessionStorage.getItem('downsell_mostrado') === 'true') return;
+      sessionStorage.setItem('downsell_mostrado', 'true');
+
+      // Fecha outros modais se estiverem abertos
+      if (typeof closeModal === 'function') closeModal();
+
+      const modal = document.getElementById('modalResgateExit');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModalResgate() {
+      const modal = document.getElementById('modalResgateExit');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleResgateBackdropClick(e) {
+      if (e.target && e.target.id === 'modalResgateExit') {
+        fecharModalResgate();
+      }
+    }
+
+    // Monitora cliques em qualquer link de checkout da página para ativar Gatilho A e anexar UTMs
+    document.addEventListener('click', function (e) {
+      const targetLink = e.target.closest('a[href*="pay.wiapy.com"]');
+      if (targetLink) {
+        sessionStorage.setItem('foi_pro_checkout', 'true');
+        // Anexa UTMs dinamicamente ao link clicado
+        const currentHref = targetLink.getAttribute('href');
+        if (currentHref && !targetLink.dataset.utmAttached) {
+          targetLink.setAttribute('href', anexarParametrosUTM(currentHref));
+          targetLink.dataset.utmAttached = "true";
+        }
+      }
+    });
+
+    // GATILHO A: Retorno de navegação (Usuário foi ao checkout e apertou Voltar)
+    window.addEventListener('pageshow', function (event) {
+      if (sessionStorage.getItem('foi_pro_checkout') === 'true' && !sessionStorage.getItem('downsell_mostrado')) {
+        sessionStorage.removeItem('foi_pro_checkout');
+        setTimeout(abrirModalResgate, 250);
+      }
+    });
+
+    // GATILHO B: Botão Voltar do celular/navegador (History API, sem mouseleave falso-positivo)
+    (function initBackInterceptor() {
+      try {
+        history.pushState({ antiAbandono: true }, document.title, location.href);
+      } catch (err) {}
+
+      window.addEventListener('popstate', function (event) {
+        if (!sessionStorage.getItem('downsell_mostrado')) {
+          try {
+            history.pushState(null, document.title, location.href);
+          } catch (e) {}
+          abrirModalResgate();
+        }
+      });
+    })();
+
+    // Suporte a tecla ESC para fechar
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') fecharModalResgate();
+    });
   </script>
 </body>
 </html>
