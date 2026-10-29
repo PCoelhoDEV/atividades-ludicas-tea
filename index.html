@@ -2297,40 +2297,33 @@
       });
     }
 
-    // --- Smart Scroll Floating CTA ---
-    // Shows when scrolling DOWN, hides when scrolling UP, hides in #planos
-    (function initSmartFloatingCta() {
+    // --- Persistent Floating CTA ---
+    // Sempre visível (sem sumir ao rolar para cima); esconde apenas no topo inicial e na seção de planos
+    (function initPersistentFloatingCta() {
       const floatingBar = document.getElementById('smartFloatingBar');
       const plansSection = document.getElementById('planos');
-      let lastScrollY = window.scrollY;
       let ticking = false;
 
       function updateFloatingState() {
         const currentScrollY = window.scrollY;
-        const scrollDelta = currentScrollY - lastScrollY;
 
-        // Check if user is near or inside #planos
+        // Verifica se o usuário está visualizando a seção de planos
         let inPlans = false;
         if (plansSection) {
           const rect = plansSection.getBoundingClientRect();
-          // If top of plans is near screen or card is visible
-          if (rect.top <= window.innerHeight * 0.7 && rect.bottom >= 100) {
+          if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 80) {
             inPlans = true;
           }
         }
 
-        // Hides if near top (< 300px), or in plans section
-        if (currentScrollY < 320 || inPlans) {
+        // Esconde apenas no topo inicial (< 280px) ou quando já está na seção de planos
+        if (currentScrollY < 280 || inPlans) {
           floatingBar.classList.remove('visible');
-        } else if (scrollDelta > 6) {
-          // Scrolling down: show CTA
+        } else {
+          // Permanece SEMPRE visível em qualquer rolagem (para cima ou para baixo)
           floatingBar.classList.add('visible');
-        } else if (scrollDelta < -8) {
-          // Scrolling up: hide CTA
-          floatingBar.classList.remove('visible');
         }
 
-        lastScrollY = currentScrollY;
         ticking = false;
       }
 
@@ -2340,6 +2333,9 @@
           ticking = true;
         }
       }, { passive: true });
+
+      // Executa verificação inicial
+      updateFloatingState();
     })();
 
     // ==========================================================================
